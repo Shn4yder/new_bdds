@@ -1,31 +1,9 @@
 from pathlib import Path
 from typing import List, Tuple
-from copy import copy as shallow_copy
-
-try:
-    from openpyxl import load_workbook, Workbook
-    from openpyxl.utils import get_column_letter
-except ImportError:
-    load_workbook = None  # type: ignore
-    Workbook = None  # type: ignore
-    get_column_letter = None  # type: ignore
+from report_generator.utils import ensure_openpyxl, copy_cell_style, load_workbook, get_column_letter
 
 
-def ensure_openpyxl():
-    global load_workbook, get_column_letter
-    if load_workbook is None:
-        raise RuntimeError(
-            "Библиотека openpyxl не установлена. Установите её: python -m pip install openpyxl"
-        )
-
-
-def copy_cell_style(src_cell, dst_cell):
-    dst_cell.font = shallow_copy(src_cell.font)
-    dst_cell.fill = shallow_copy(src_cell.fill)
-    dst_cell.border = shallow_copy(src_cell.border)
-    dst_cell.alignment = shallow_copy(src_cell.alignment)
-    dst_cell.number_format = src_cell.number_format
-    dst_cell.protection = shallow_copy(src_cell.protection)
+ 
 
 
 def process_footer_template(template_path: Path, output_path: Path, months: List[Tuple[int, int]]):
