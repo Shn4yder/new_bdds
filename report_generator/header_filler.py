@@ -4,9 +4,6 @@ from copy import copy as shallow_copy
 from report_generator.utils import ensure_openpyxl, copy_cell_style, load_workbook, get_column_letter, Alignment
 
 
- 
-
-
 def process_header_template(template_path: Path, output_path: Path, months: List[Tuple[int, int]]):
     ensure_openpyxl()
     wb = load_workbook(filename=str(template_path), data_only=False)

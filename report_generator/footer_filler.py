@@ -3,9 +3,6 @@ from typing import List, Tuple
 from report_generator.utils import ensure_openpyxl, copy_cell_style, load_workbook, get_column_letter
 
 
- 
-
-
 def process_footer_template(template_path: Path, output_path: Path, months: List[Tuple[int, int]]):
     ensure_openpyxl()
     wb = load_workbook(filename=str(template_path), data_only=False)

@@ -9,8 +9,6 @@ from report_generator.utils import (
 )
 
 
- 
-
 def _autosize_columns(ws, cols: List[int]):
     for col in cols:
         max_len = 0

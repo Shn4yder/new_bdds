@@ -25,3 +25,7 @@ def copy_cell_style(src_cell, dst_cell):
     dst_cell.alignment = shallow_copy(src_cell.alignment)
     dst_cell.number_format = src_cell.number_format
     dst_cell.protection = shallow_copy(src_cell.protection)
+
+
+def normalize_name(s: str) -> str:
+    return (" ".join(str(s).split())).strip()

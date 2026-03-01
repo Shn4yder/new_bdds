@@ -18,3 +18,5 @@ Desktop.ini
 templates/report_*.xlsx
 templates/*_expanded_*.xlsx
 ~$*.xlsx
+
+data
